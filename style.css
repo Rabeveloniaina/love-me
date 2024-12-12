@@ -1,0 +1,261 @@
+#confetti-container,
+#gif-container,
+#gif-container a {
+  pointer-events: none;
+}
+#gif-container,
+.container,
+body {
+  overflow: hidden;
+}
+.btn,
+.container,
+body,
+footer {
+  display: flex;
+}
+.social-icon,
+footer p {
+  color: rgba(255, 255, 255, 0.5);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #ffb6c1, #ff69b4, #ff1493, tomato);
+  background-size: 400% 400%;
+  animation: 20s linear infinite moveGradient;
+}
+@keyframes moveGradient {
+  0%,
+  100% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.container {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  opacity: 0;
+  animation: 1.5s forwards fadeIn;
+}
+.tenor-gif-embed,
+.tenor-gif-embed img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+.confetti,
+h1,
+p {
+  opacity: 0;
+}
+#gif-container {
+  width: 100%;
+  max-height: 50%;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: 2s 0.5s forwards fadeIn;
+}
+.tenor-gif-embed img {
+  border-radius: 10px;
+  transition: transform 0.5s;
+}
+.tenor-gif-embed img:hover {
+  transform: scale(1.05);
+}
+.content {
+  z-index: 1;
+}
+h1,
+p {
+  margin: 10px 0;
+}
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  animation: 1s 1s forwards fadeIn;
+}
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #666;
+  animation: 1.5s 1.5s forwards fadeIn;
+}
+.btn {
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.btn button {
+  text-decoration: none;
+  background-color: #ff69b4;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: 700;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.btn button:hover {
+  background-color: #ff1493;
+  transform: translateY(-3px);
+}
+#move-random {
+  position: absolute;
+  z-index: 10;
+  transition: top 0.3s, left 0.3s;
+}
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  .container {
+    padding: 15px;
+    width: 100%;
+    max-width: 90%;
+    max-height: 90vh;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1.1em;
+  }
+  .btn button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+  .btn {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .tenor-gif-embed img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+    max-height: 80vh;
+  }
+  h1 {
+    font-size: 1.7em;
+  }
+  p {
+    font-size: 1em;
+  }
+  .btn button {
+    font-size: 0.9em;
+    padding: 8px 15px;
+  }
+}
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  overflow: hidden;
+}
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0;
+  animation: 2s forwards explode, 2s 1s forwards fall;
+}
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--x), var(--y)) scale(1.5);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 1;
+  }
+}
+@keyframes fall {
+  0% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), 100vh);
+    opacity: 0;
+  }
+}
+footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  font-size: 1em;
+  background-color: transparent;
+  padding: 10px 20px;
+  z-index: 10;
+  animation: 1s ease-out fadeInFooter;
+}
+footer p {
+  margin: 0;
+  font-size: 1em;
+}
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+.social-icon {
+  font-size: 1.5em;
+  text-decoration: none;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-icon:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+@keyframes fadeInFooter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
